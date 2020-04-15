@@ -1,56 +1,95 @@
 //<img id="computer" src="" alt="rock-paper-scissors">
 
-let PlayerChoice 
+let PlayerChoice
 let computerChoice
-let rock = document.getElementById('rock')
-rock.onclick = function() {
-   PlayerChoice = "rock"
+let randomNum
+rock.onclick = function () {
+  PlayerChoice = "rock"
+  randomNumber()
+  computer()
+  return
 }
 let paper = document.getElementById('paper')
-paper.onclick = function(){
+paper.onclick = function () {
   PlayerChoice = "paper"
+  randomNumber()
+  computer()
+  return
 }
 let scissors = document.getElementById('scissors')
-scissors.onclick = function(){
+scissors.onclick = function () {
   PlayerChoice = "scissors"
+  randomNumber()
+  computer()
+  return;
 }
-let button = document.getElementsByTagName("button")
-button.onclick = function(){
-  let randomNum = Math.floor(Math.random() * Math.floor(3));
-  switch(randomNum){
-    case 0: computerChoice = "rock"
-    break;
-    case 1: computerChoice = "paper"
-    break; 
-    case 2: computerChoice = "scissors"
-    break; 
-    default: console.log('error')
-    break;
+
+function randomNumber() {
+    min = Math.ceil(0);
+    max = Math.floor(3);
+    randomNum = Math.floor(Math.random() * (max - min)) + min;
+  return
+}
+
+function computer() {
+  switch (randomNum) {
+    case 0:
+      computerChoice = "rock"
+      winner()
+      return;
+    case 1:
+      computerChoice = "paper"
+      winner
+      return;
+    case 2:
+      computerChoice = "scissors"
+      winner()
+      return;
+    default:
+      console.log('error')
+      break;
   }
 }
-//Computer makes a random choice
-// function computerChoice() {
-//     let randomNum = Math.floor(Math.random() * Math.floor(3));
-//     switch(randomNum){
-//       case 0: console.log('0');
-//       case 1: console.log('1'); 
-//       case 2: console.log('2'); 
-    
-//     }
-//   }
-//Player makes a choice
-//  function playerChoice(choice) {
-//   switch(choice){
-//     case rock: console.log('rock');
-//     case paper: console.log('paper'); 
-//     case scissors: console.log('scissors'); 
-  
-//   }
 
-//Checks who won
-// function matchWinner(playerChoice, computerChoice ) {
-// switch(playerChoice,computerChoice){
-//   case 
-// }
-// }
 
+
+function winner() {
+  let image = document.getElementById('computer')
+  let board = document.getElementById('winnerBoard')
+  //rock & scissors
+  if (PlayerChoice === "rock" && computerChoice === "scissors") {
+    board.textContent = "Player Wins!!"
+    image.src = "images/RobotDefeated_RPS.png"
+    return
+  } else if (PlayerChoice === "scissors" && computerChoice === "rock") {
+    console.log("computer wins!!!")
+    image.src = "images/RobotAlive_RPS.png"
+    return
+  }
+  //paper & scissors
+  if (PlayerChoice === "paper" && computerChoice === "scissors") {
+    board.textContent = "Computer Wins!!"
+    image.src = "images/RobotAlive_RPS.png"
+    return
+  } else if (PlayerChoice === "scissors" && computerChoice === "paper") {
+    board.textContent = "Player Wins!!"
+    image.src = "images/RobotDefeated_RPS.png"
+    return
+  }
+  // rock & paper
+  if (PlayerChoice === "rock" && computerChoice === "paper") {
+    board.textContent = "Computer Wins!!"
+    image.src = "images/RobotAlive_RPS.png"
+    return
+  } else if (PlayerChoice === "paper" && computerChoice === "rock") {
+    board.textContent = "Player Wins!!"
+    image.src = "images/RobotDefeated_RPS.png"
+    return
+  }
+  //tie game
+  if (PlayerChoice === computerChoice) {
+    board.textContent = "It's A Tie!!!"
+    image.src = "images/RobotAlive_RPS.png"
+    return
+  }
+}
