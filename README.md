@@ -1,6 +1,6 @@
 **Description**
 
-Tasked to create a program that uses Javascript to create a game of chance
+Javascript project that is a mini game
 
 **Languages and Libraries**
 
