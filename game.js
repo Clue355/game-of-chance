@@ -39,7 +39,7 @@ function computer() {
       return;
     case 1:
       computerChoice = "paper"
-      winner
+      winner()
       return;
     case 2:
       computerChoice = "scissors"
