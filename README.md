@@ -7,4 +7,4 @@ Javascript project that is a mini game
 HTML, CSS, Javascript
 
 **Live Demo**
-[Live demo](https://clue355.github.io/game-of-chance/)
+[https://clue355.github.io/game-of-chance/](Live Demo)
